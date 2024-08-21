@@ -13,18 +13,9 @@ button.addEventListener("click",async(event)=>{
    try {
     const result = await fetchData(userName);
     DATA.forEach((item)=>{fillData({...item,data:result[item.id]})});
-//    fillData({id:"bio",data:result.bio});
-//    fillData({id:"name",data:result.name});
-//    fillData({id:"twitter_username",data:result.twitter_username});
-//    fillData({id:"followers",data:result.followers});
-//    fillData({id:"avatar_url",data:result.avatar_url,isImage:true});
-    
    } catch (error) {
     alert(error)
-    
-   }
-   
-})
+   }})
 async function fetchData(username) {
     const result = await fetch(`https://api.github.com/users/${username}`);
     if(result.ok){
@@ -41,6 +32,5 @@ const fillData = (obj)=>{
     element.textContent=obj.data;}
     else{   
     element.src=obj.data;
-    }
-    
+    } 
 }
